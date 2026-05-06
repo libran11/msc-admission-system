@@ -1,9 +1,18 @@
-This is my part for 02 Core Application Workflow Logic:
-https://github.com/libran11/msc-admission-system
+# MSc Admission Management System
 
-Main completed parts:
-- Application workflow backend
-- Application status transition
-- Review decision logic
-- Spring Boot + MySQL integration
-- API test file included
+## Description
+Backend system for MSc application workflow.
+
+## Tech Stack
+- Spring Boot
+- MySQL
+- JPA
+
+## Features
+- Create application
+- Submit application
+- Review application
+- Status flow: DRAFT → SUBMITTED → REVIEW → ACCEPTED
+
+## API
+See test.http for examples.
