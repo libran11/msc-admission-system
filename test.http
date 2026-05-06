@@ -1,0 +1,9 @@
+POST http://localhost:8081/api/applications
+Content-Type: application/json
+
+{
+  "applicantId": 1,
+  "programName": "MSc Computer Science",
+  "personalStatement": "momo",
+  "documentUrl": "file.pdf"
+}
