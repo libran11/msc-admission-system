@@ -22,6 +22,11 @@ public class ApplicationController {
         this.applicationService = applicationService;
     }
 
+    @GetMapping
+    public List<Application> listApplications() {
+        return applicationService.getAllApplications();
+    }
+
     @PostMapping
     public Application createApplication(@RequestBody ApplicationCreateRequest request) {
         return applicationService.createApplication(request);
