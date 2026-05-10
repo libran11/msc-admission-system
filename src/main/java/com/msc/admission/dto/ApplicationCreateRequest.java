@@ -1,11 +1,14 @@
 package com.msc.admission.dto;
 
+import java.util.List;
+
 public class ApplicationCreateRequest {
 
     private Long applicantId;
     private String programName;
     private String personalStatement;
     private String documentUrl;
+    private List<String> tags;
 
     public Long getApplicantId() {
         return applicantId;
@@ -37,5 +40,13 @@ public class ApplicationCreateRequest {
 
     public void setDocumentUrl(String documentUrl) {
         this.documentUrl = documentUrl;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }
