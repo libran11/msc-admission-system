@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# 屏蔽本地JDK目录
+src/main/java/com/msc/admission/controller/oracleJdk-26/

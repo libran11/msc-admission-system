@@ -3,6 +3,9 @@ package com.msc.admission.entity;
 import com.msc.admission.enums.ApplicationStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 //entity里的两个java会通过 JPA 自动映射成 MySQL 数据库里的两张表
 //Application.java 表示一条 学生申请记录。
 @Entity
@@ -22,6 +25,12 @@ public class Application {
 
     private String documentUrl;
 
+    // Tag labels attached to the application for filtering or recommendation
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "application_tags", joinColumns = @JoinColumn(name = "application_id"))
+    @Column(name = "tag")
+    private Set<String> tags = new HashSet<>();
+
     @Enumerated(EnumType.STRING)
     private ApplicationStatus status;
 
@@ -32,11 +41,12 @@ public class Application {
     public Application() {
     }
 
-    public Application(Long applicantId, String programName, String personalStatement, String documentUrl) {
+    public Application(Long applicantId, String programName, String personalStatement, String documentUrl, Set<String> tags) {
         this.applicantId = applicantId;
         this.programName = programName;
         this.personalStatement = personalStatement;
         this.documentUrl = documentUrl;
+        this.tags = tags != null ? tags : new HashSet<>();
         this.status = ApplicationStatus.DRAFT;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
@@ -76,6 +86,14 @@ public class Application {
 
     public void setDocumentUrl(String documentUrl) {
         this.documentUrl = documentUrl;
+    }
+
+    public Set<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<String> tags) {
+        this.tags = tags;
     }
 
     public ApplicationStatus getStatus() {
