@@ -58,4 +58,8 @@ public class ReviewRecord {
     public LocalDateTime getReviewedAt() {
         return reviewedAt;
     }
+
+    public void setReviewedAt(LocalDateTime reviewedAt) {
+        this.reviewedAt = reviewedAt;
+    }
 }
