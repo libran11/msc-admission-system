@@ -2,10 +2,16 @@ server:
   port: 8081
 
 spring:
+  # 本机数据库密码请勿提交：请复制 application-local.example.yml → application-local.yml 修改
+  # 或在运行配置 / 终端中设置环境变量 SPRING_DATASOURCE_PASSWORD（优先级高于 YAML）
+  config:
+    import: optional:classpath:application-local.yml
+
   datasource:
     url: jdbc:mysql://localhost:3306/msc_admission_system?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: CPT402S2
+    # 不在此写 password，避免与同文件后半段覆盖了 import 进来的配置；
+    # 密码来自可选的 application-local.yml，或由环境变量 SPRING_DATASOURCE_PASSWORD 提供（适合 CI）
 
   jpa:
     hibernate:

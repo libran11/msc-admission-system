@@ -1,5 +1,8 @@
 HELP.md
 target/
+
+# 本机数据库账号密码（每人不同，勿提交）
+**/src/main/resources/application-local.yml
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

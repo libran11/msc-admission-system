@@ -244,6 +244,10 @@ public class ApplicationService {
         return applicationRepository.findByApplicantId(applicantId);
     }
 
+    public List<Application> getAllApplications() {
+        return applicationRepository.findAll();
+    }
+
     public List<Application> getApplicationsByStatus(ApplicationStatus status) {
         return applicationRepository.findByStatus(status);
     }
